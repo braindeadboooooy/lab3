@@ -8,15 +8,10 @@
 using namespace std;
 
 
-int main() {
-	ofstream out;
-	out.open("D:\\otput.txt");
-	if (!(out.is_open())) {
-		cout << "File not found!";
-		cout << "Exit....";
-		return -1;
-	}
-	else{
+int main(int argc, char *argv[]) {
+		ofstream out;
+		string filename;
+		
 		string d_spec1;
 		string d_lname1;
 		string d_fname1;
@@ -28,11 +23,21 @@ int main() {
 		unsigned int hour1;
 		unsigned int minutes1;
 		int del;
-
+		
 
 		List lst;
 
 		int option;
+		
+		if (argc >= 2) {
+			filename = string(argv[1]);
+			out.open(argv[1], ios_base::out);
+		}
+		else {
+			cout << "Enter filename: \n";
+			cin >> filename;
+			out.open(filename, ios_base::out);
+		}
 
 		do {
 			cout << "Select option number. Enter 0 to exit." << endl;
@@ -40,8 +45,7 @@ int main() {
 			cout << "2. Remove node." << endl;
 			cout << "3. Print list." << endl;
 			cout << "4. Size of list" << endl;
-			cout << "5. Delete all list" << endl;
-			cout << "6. Search by patient last name." << endl;
+			cout << "5. Search by patient last name." << endl;
 
 			cin >> option;
 
@@ -86,20 +90,14 @@ int main() {
 				cin >> del;
 				cout << endl;
 				lst.remove(del);
-				lst.printAll();
 				break;
 			case 3:
 				lst.printAll();
 				break;
 			case 4:
-				lst.size();
+				cout << "Size of list : " << lst.size() << endl;
 				break;
-
 			case 5:
-				lst.removeAll();
-				break;
-
-			case 6:
 				cout << "Enter search string:";
 				cin >> usearch1;
 				lst.search(usearch1);
@@ -107,6 +105,6 @@ int main() {
 			}
 		} while (option != 0);
 
+		out.close();
 		return 0;
-	}
 }
