@@ -53,28 +53,16 @@ void List::printAll() {
     }
 }
 
-void List::removeAll(){
-    Info* temp = head;
-    while (temp) {
-        Info* next = temp->next();
-        delete temp;
-        temp = next;
-    }
-
-}
 
 void List::search(string usearch) {
     Info* temp = head;
     string s1 = usearch;
-    string s2 = temp->p_lname();
-    while (temp != 0) {
-
-        if (s1 == s2) {
+    
+    for(int i = 0; i < _size; i++){
+        if (temp->p_lname() == s1) {
             cout << temp->d_spec() << " " << temp->d_lname() << " " << temp->d_fname() << " " << temp->p_lname() << " " << temp->p_fname() << " " << temp->day() << "." << temp->month() << " " << temp->hour() << ":" << temp->minutes() << endl;
+            break;
         }
-        else {
-            temp = temp->next();
-            
-        }
+        temp = temp->next();    
     }
 }
