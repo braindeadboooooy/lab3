@@ -30,6 +30,10 @@ public:
 
 
 	void setState(string d_spec, string d_lname, string d_fname, string p_lname, string p_fname, unsigned int day, unsigned int month, unsigned int hour, unsigned int minutes);
+	void setDay(unsigned int day);
+	void setMonth(unsigned int month);
+	void setHour(unsigned int hour);
+	void setMinutes(unsigned int minutes);
 	
 
 	friend ostream& operator << (ostream& out, const Info& info);
