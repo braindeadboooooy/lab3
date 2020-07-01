@@ -16,6 +16,8 @@ public:
     void remove(int n);
     void printAll();
     void search(string usearch);
+    void editing(string usearch);
+    void output(string _filename);
 
 private:
     Info* head;
