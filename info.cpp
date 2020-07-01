@@ -46,6 +46,21 @@ void Info::setState(string d_spec, string d_lname, string d_fname, string p_lnam
 	}
 }
 
+void Info::setDay(unsigned int day) {
+	_day = day;
+}
+
+void Info::setMonth(unsigned int month) {
+	_month = month;
+}
+
+void Info::setHour(unsigned int hour) {
+	_hour = hour;
+}
+
+void Info::setMinutes(unsigned int minutes) {
+	_minutes = minutes;
+}
 
 Info* Info::next()
 {
